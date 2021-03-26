@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!--
+        HTML Head Tags
+        Docs: https://github.com/joshbuchea/HEAD
+      -->
+
+    <!-- Rendering Info -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--
+        Security Headers
+        These are set in HTML because the alternative for this static site is a cloudfront lambda
+        Docs: https://infosec.mozilla.org/guidelines/web_security
+
+        Content Security Policy
+        Docs: https://infosec.mozilla.org/guidelines/web_security#content-security-policy
+        Generator: https://report-uri.com/home/generate
+        Evaluator: https://csp-evaluator.withgoogle.com/
+      -->
+    <!--
+      TODO
+    <meta http-equiv="Content-Security-Policy" content="
+          default-src 'none' ws:;
+          style-src 'self' ws:;
+          script-src 'self' ws:;
+          img-src 'self';
+          font-src 'self';
+          manifest-src 'self';
+          upgrade-insecure-requests;
+          block-all-mixed-content;
+          require-trusted-types-for 'script';">
+      -->
+
+    <!--
+        Strict Transport Security
+        Docs: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
+        Docs: https://infosec.mozilla.org/guidelines/web_security#http-strict-transport-security
+      -->
+    <meta http-equiv="Strict-Transport-Security" content="
+        max-age=63072000;
+        includeSubDomains;
+        preload;">
+
+    <!--
+        X-XSS-Protection
+        Docs: https://infosec.mozilla.org/guidelines/web_security#x-xss-protection
+      -->
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+
+    <!--
+        X-Content-Type-Options
+        Docs: https://infosec.mozilla.org/guidelines/web_security#x-content-type-options
+      -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+    <!-- Metadata -->
+    <meta name="referrer" content="no-referrer">
+    <link rel="manifest" href="assets/site/site.webmanifest"> <!-- TODO -->
+
+    <!-- Titles -->
+    <title>Uptime Calculator</title> <!-- TODO -->
+    <meta name="description" content="Uptime Calculator" /> <!-- TODO -->
+
+    <!--
+        Icons
+        Docs: https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/
+        Generated: https://favicon.io/favicon-generator/?t=SL&ff=Ubuntu+Mono&fs=90&fc=%23ececec&b=rounded&bc=%23222831
+      -->
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="assets/icons/favicon-192x192.png">
+    <link rel="apple-touch-startup-image" href="assets/icons/favicon-192x192.png">
+
+    <!--
+        Colors
+        Docs: https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/
+      -->
+    <meta name="theme-color" content="#222831"> <!-- TODO -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> <!-- TODO -->
+  </head>
+
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script type="module" src="/dist/index.js"></script>
+  </body>
+
+</html>
