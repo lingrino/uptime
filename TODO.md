@@ -4,9 +4,6 @@
 - Update name/desc/homepage in package.json
 - Update version number
 - Remove unused packages
-- Actions for testing and linting
-- npm script for linting/formatting
-- write tests
 - Add theme colors to tailwind
 - Support dark mode
 - Add favicon
