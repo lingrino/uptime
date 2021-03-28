@@ -1,3 +1,5 @@
+const typescript = require("typescript");
+
 module.exports = {
   env: {
     browser: true,
@@ -17,12 +19,16 @@ module.exports = {
     },
   ],
   settings: {
-    "svelte3/typescript": require("typescript"),
+    "svelte3/typescript": typescript,
   },
   rules: {
     "import/first": "off",
     "import/no-duplicates": "off",
     "import/no-mutable-exports": "off",
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      { devDependencies: ["./.eslintrc.js", "./*.config.js"] },
+    ],
   },
 };
