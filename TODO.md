@@ -13,3 +13,6 @@
 - Acessibility lables
 - Update repo description, labels, homepage
 - Update README
+- Modify url params on text box change
+- Support reading from url params on load
+- Add vanity urls for thre|four|etc-nines

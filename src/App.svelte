@@ -2,31 +2,32 @@
   import "./TailwindStyles.svelte";
 
   let uptime: number = 99.9;
+
+  function uptimeSeconds(uptimePercent: number, divisor: number): number {
+    const yearSeconds: number = 31556952;
+    return Math.floor((yearSeconds / divisor) * (1 - uptimePercent / 100));
+  }
+
+  // https://tc39.es/proposal-temporal/docs/duration.html#toLocaleString
+  function secondsToDhms(seconds: number): string {
+    const d = Math.floor(seconds / 86400);
+    const h = Math.floor((seconds / 3600) % 24);
+    const m = Math.floor((seconds % 3600) / 60);
+    const s = Math.floor((seconds % 3600) % 60);
+
+    const dDisplay = d > 0 ? d + (d === 1 ? " day, " : " days, ") : "";
+    const hDisplay = h > 0 ? h + (h === 1 ? " hour, " : " hours, ") : "";
+    const mDisplay = m > 0 ? m + (m === 1 ? " minute, " : " minutes, ") : "";
+    const sDisplay = s > 0 ? s + (s === 1 ? " second" : " seconds") : "";
+
+    return dDisplay + hDisplay + mDisplay + sDisplay;
+  }
+
   $: daily = secondsToDhms(uptimeSeconds(uptime, 365));
   $: weekly = secondsToDhms(uptimeSeconds(uptime, 52));
   $: monthly = secondsToDhms(uptimeSeconds(uptime, 12));
   $: quarterly = secondsToDhms(uptimeSeconds(uptime, 4));
   $: yearly = secondsToDhms(uptimeSeconds(uptime, 1));
-
-  function uptimeSeconds(uptime: number, divisor: number): number {
-    const yearSeconds: number = 31556952;
-    return Math.floor((yearSeconds / divisor) * (1 - uptime / 100));
-  }
-
-  // https://tc39.es/proposal-temporal/docs/duration.html#toLocaleString
-  function secondsToDhms(seconds: number): string {
-    var d = Math.floor(seconds / 86400);
-    var h = Math.floor((seconds / 3600) % 24);
-    var m = Math.floor((seconds % 3600) / 60);
-    var s = Math.floor((seconds % 3600) % 60);
-
-    var dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
-    var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
-    var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
-    var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
-
-    return dDisplay + hDisplay + mDisplay + sDisplay;
-  }
 </script>
 
 <div class="text-center w-full h-screen p-10">

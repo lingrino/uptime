@@ -1,6 +1,8 @@
 {
   "include": ["src", "types"],
+  "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
+    "types": ["svelte", "snowpack-env"],
     "module": "esnext",
     "target": "esnext",
     "moduleResolution": "node",
