@@ -2,7 +2,7 @@
   "name": "uptime",
   "description": "uptime calculator",
   "homepage": "https://lingrino.com",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "author": "Sean Lingren <sean@lingrino.com> (https://lingrino.com/)",
   "scripts": {
@@ -34,7 +34,7 @@
     "prettier": "^2.2.1",
     "prettier-plugin-svelte": "^2.2.0",
     "snowpack": "^3.0.13",
-    "svelte-preprocess": "^4.6.9",
+    "svelte-preprocess": "^4.7.0",
     "typescript": "^4.2.3"
   },
   "husky": {

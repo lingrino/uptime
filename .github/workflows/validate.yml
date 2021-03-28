@@ -1,0 +1,20 @@
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "15" # https://nodejs.org/en/download/current/
+      - name: Install Dependencies
+        run: npm ci
+      - name: Build Package
+        run: npm run build
+      - name: Run Tests
+        run: npm run test
