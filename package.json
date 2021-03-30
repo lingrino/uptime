@@ -27,7 +27,7 @@
     "@tsconfig/svelte": "^1.0.10",
     "@types/snowpack-env": "^2.3.3",
     "@typescript-eslint/eslint-plugin": "^4.20.0",
-    "@typescript-eslint/parser": "^4.19.0",
+    "@typescript-eslint/parser": "^4.20.0",
     "autoprefixer": "^10.2.5",
     "eslint": "^7.23.0",
     "eslint-config-airbnb-base": "^14.2.1",
