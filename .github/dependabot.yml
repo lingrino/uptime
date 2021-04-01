@@ -20,7 +20,7 @@ updates:
     directory: /
     schedule:
       time: "16:00"
-      interval: daily
+      interval: weekly
     allow:
       - dependency-type: all
     assignees:
