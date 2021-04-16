@@ -62,13 +62,10 @@
     <!-- Metadata -->
     <meta name="referrer" content="no-referrer" />
     <link rel="manifest" href="assets/site/site.webmanifest" />
-    <!-- TODO -->
 
     <!-- Titles -->
     <title>Uptime Calculator</title>
-    <!-- TODO -->
     <meta name="description" content="Uptime Calculator" />
-    <!-- TODO -->
 
     <!--
         Icons
@@ -79,39 +76,157 @@
       rel="icon"
       type="image/png"
       sizes="192x192"
-      href="assets/icons/favicon-192x192.png"
+      href="/assets/icons/favicon-192x192.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="assets/icons/favicon-16x16.png"
+      href="/assets/icons/favicon-16x16.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="192x192"
-      href="assets/icons/favicon-192x192.png"
+      href="/assets/icons/favicon-192x192.png"
     />
     <link
       rel="apple-touch-startup-image"
-      href="assets/icons/favicon-192x192.png"
+      href="/assets/icons/favicon-192x192.png"
     />
 
     <!--
         Colors
         Docs: https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/
       -->
-    <meta name="theme-color" content="#222831" />
-    <!-- TODO -->
+    <meta name="theme-color" content="#064E3B" />
     <meta
       name="apple-mobile-web-app-status-bar-style"
       content="black-translucent"
     />
-    <!-- TODO -->
   </head>
 
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <style>
+        #nojs {
+          text-align: right;
+          font-family: monospace;
+        }
+        #nojs h1 {
+          color: #064e3b;
+          font-size: 4em;
+          text-align: center;
+        }
+        #nojs h3 {
+          padding-top: 20px;
+          text-align: center;
+        }
+        #nojs table {
+          margin: auto;
+          border-collapse: collapse;
+        }
+        #nojs th {
+          color: white;
+          font-size: 1.2em;
+          text-align: center;
+          padding: 10px 14px;
+          border: 2px solid #6b7280;
+          background-color: #064e3b;
+        }
+        #nojs td {
+          border: 2px solid #6b7280;
+          padding: 10px;
+        }
+        #nojs tr:nth-child(even) {
+          background-color: #e5e7eb;
+        }
+      </style>
+      <div id="nojs">
+        <h1>Uptime Calculator</h1>
+        <table>
+          <thead>
+            <tr>
+              <th><b>Availability</b></th>
+              <th><b>Daily</b></th>
+              <th><b>Weekly</b></th>
+              <th><b>Monthly</b></th>
+              <th><b>Quarterly</b></th>
+              <th><b>Yearly</b></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>99.999%</b></td>
+              <td>0s</td>
+              <td>6s</td>
+              <td>26s</td>
+              <td>1m&nbsp;18s</td>
+              <td>5m&nbsp;15s</td>
+            </tr>
+            <tr>
+              <td><b>99.99%</b></td>
+              <td>8s</td>
+              <td>1m&nbsp;&nbsp;0s</td>
+              <td>4m&nbsp;22s</td>
+              <td>13m&nbsp;&nbsp;8s</td>
+              <td>52m&nbsp;35s</td>
+            </tr>
+            <tr>
+              <td><b>99.95%</b></td>
+              <td>43s</td>
+              <td>5m&nbsp;&nbsp;3s</td>
+              <td>21m&nbsp;54s</td>
+              <td>5m&nbsp;44s</td>
+              <td>4h&nbsp;22m&nbsp;58s</td>
+            </tr>
+            <tr>
+              <td><b>99.9%</b></td>
+              <td>1m&nbsp;26s</td>
+              <td>10m&nbsp;&nbsp;6s</td>
+              <td>43m&nbsp;49s</td>
+              <td>2h&nbsp;11m&nbsp;29s</td>
+              <td>8h&nbsp;45m&nbsp;56s</td>
+            </tr>
+            <tr>
+              <td><b>99.5%</b></td>
+              <td>7m&nbsp;12s</td>
+              <td>50m&nbsp;34s</td>
+              <td>3h&nbsp;39m&nbsp;&nbsp;8s</td>
+              <td>10h&nbsp;57m&nbsp;26s</td>
+              <td>1d&nbsp;19h&nbsp;49m&nbsp;44s</td>
+            </tr>
+            <tr>
+              <td><b>99%</b></td>
+              <td>14m&nbsp;24s</td>
+              <td>1h&nbsp;41m&nbsp;&nbsp;8s</td>
+              <td>7h&nbsp;18m&nbsp;17s</td>
+              <td>21h&nbsp;54m&nbsp;52s</td>
+              <td>3d&nbsp;15h&nbsp;39m&nbsp;29s</td>
+            </tr>
+            <tr>
+              <td><b>95%</b></td>
+              <td>1h&nbsp;12m&nbsp;&nbsp;2s</td>
+              <td>8h&nbsp;25m&nbsp;43s</td>
+              <td>1d&nbsp;12h&nbsp;31m&nbsp;27s</td>
+              <td>4d&nbsp;13h&nbsp;34m&nbsp;21s</td>
+              <td>18d&nbsp;&nbsp;6h&nbsp;17m&nbsp;27s</td>
+            </tr>
+            <tr>
+              <td><b>90%</b></td>
+              <td>2h&nbsp;24m&nbsp;&nbsp;5s</td>
+              <td>16h&nbsp;51m&nbsp;26s</td>
+              <td>3d&nbsp;&nbsp;1h&nbsp;&nbsp;2m&nbsp;54s</td>
+              <td>9d&nbsp;&nbsp;3h&nbsp;&nbsp;8m&nbsp;43s</td>
+              <td>36d&nbsp;12h&nbsp;34m&nbsp;55s</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>
+          I hope this uptime table is useful! This site has no tracking but
+          needs javascript to work fully.
+        </h3>
+      </div>
+    </noscript>
     <script type="module" src="/dist/index.js"></script>
   </body>
 </html>

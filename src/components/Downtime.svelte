@@ -1,9 +1,12 @@
-<script>
-  export let daily: string = "0 seconds";
-  export let weekly: string = "0 seconds";
-  export let monthly: string = "0 seconds";
-  export let quarterly: string = "0 seconds";
-  export let yearly: string = "0 seconds";
+<script lang="typescript">
+  import { uptimeSeconds, secondsToDhms } from "./Math.svelte";
+
+  export let uptime: number = 99.9;
+  $: daily = secondsToDhms(uptimeSeconds(uptime, 365));
+  $: weekly = secondsToDhms(uptimeSeconds(uptime, 52));
+  $: monthly = secondsToDhms(uptimeSeconds(uptime, 12));
+  $: quarterly = secondsToDhms(uptimeSeconds(uptime, 4));
+  $: yearly = secondsToDhms(uptimeSeconds(uptime, 1));
 </script>
 
 <div class="flex justify-center">

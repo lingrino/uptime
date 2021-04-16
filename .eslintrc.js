@@ -24,8 +24,9 @@ module.exports = {
   rules: {
     "import/first": "off",
     "import/no-duplicates": "off",
-    "import/no-mutable-exports": "off",
     "import/no-unresolved": "off",
+    "import/no-mutable-exports": "off",
+    "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": [
       "error",
       { devDependencies: ["./.eslintrc.js", "./*.config.js"] },
