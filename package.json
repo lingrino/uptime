@@ -1,7 +1,7 @@
 {
   "name": "uptime",
-  "description": "uptime calculator",
-  "homepage": "https://lingrino.com",
+  "description": "a simple uptime calculator",
+  "homepage": "https://uptime.how",
   "version": "1.0.0",
   "license": "MIT",
   "author": "Sean Lingren <sean@lingrino.com> (https://lingrino.com/)",

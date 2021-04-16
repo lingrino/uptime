@@ -9,7 +9,8 @@
   }
 
   // friendly format seconds
-  // TODO - https://tc39.es/proposal-temporal/docs/duration.html#toLocaleString
+  // can be simplified once browsers support duration.toLocaleString
+  // https://tc39.es/proposal-temporal/docs/duration.html#toLocaleString
   export function secondsToDhms(seconds: number): string {
     const d = Math.floor(seconds / 86400);
     const h = Math.floor((seconds / 3600) % 24);
