@@ -24,6 +24,7 @@
       type="text"
       id="uptime"
       name="uptime"
+      aria-label="uptime percentage"
       bind:value={uptime}
       on:input={handleInput}
     />
