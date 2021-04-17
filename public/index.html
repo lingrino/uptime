@@ -11,30 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--
-        Security Headers
-        These are set in HTML because the alternative for this static site is a cloudfront lambda
-        Docs: https://infosec.mozilla.org/guidelines/web_security
-
-        Content Security Policy
-        Docs: https://infosec.mozilla.org/guidelines/web_security#content-security-policy
-        Generator: https://report-uri.com/home/generate
-        Evaluator: https://csp-evaluator.withgoogle.com/
-      -->
-    <!--
-      TODO
-    <meta http-equiv="Content-Security-Policy" content="
-          default-src 'none' ws:;
-          style-src 'self' ws:;
-          script-src 'self' ws:;
-          img-src 'self';
-          font-src 'self';
-          manifest-src 'self';
-          upgrade-insecure-requests;
-          block-all-mixed-content;
-          require-trusted-types-for 'script';">
-      -->
-
-    <!--
         Strict Transport Security
         Docs: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
         Docs: https://infosec.mozilla.org/guidelines/web_security#http-strict-transport-security

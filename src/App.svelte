@@ -12,13 +12,15 @@
 <div class="flex flex-col min-h-screen bg-gray-100">
   <div class="flex-grow">
     <Title />
-    <Input
-      {uptime}
-      on:update={(event) => {
-        uptime = event.detail;
-      }}
-    />
-    <Downtime {uptime} />
+    <main>
+      <Input
+        {uptime}
+        on:update={(event) => {
+          uptime = event.detail;
+        }}
+      />
+      <Downtime {uptime} />
+    </main>
   </div>
   <Footer />
 </div>
