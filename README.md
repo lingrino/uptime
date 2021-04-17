@@ -1,7 +1,5 @@
 # Uptime
 
-🚧 Work In Progress 🚧
-
 A simple site useful for calculating how expected uptime (eg: `99.99%`) translates to allowed downtime in a period (eg: `53 minutes/year`).
 
 This site is built with the following technologies. I chose them because they're new and I wanted to try them out.
