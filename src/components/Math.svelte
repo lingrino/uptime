@@ -1,19 +1,17 @@
 <script lang="typescript" context="module">
   // get a number from the provided path or return default on failure
   export function pathNumber(def: number): number {
-    const path = window.location.pathname
-    if (path === '/') {
-      return def
+    const path = window.location.pathname;
+    if (path === "/") {
+      return def;
     }
 
-    const pn = Number(path.replace(/^\/+/g, ''))
+    const pn = Number(path.replace(/^\/+/g, ""));
     if (!Number.isNaN(pn) && pn >= 0 && pn <= 100) {
-      console.log(pn)
-      console.log('foo')
-      return pn
+      return pn;
     }
 
-    return def
+    return def;
   }
 
   // allowed uptime in seconds given a percent and portion of the year
