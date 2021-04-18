@@ -13,7 +13,7 @@
     }
 
     borderstyle = "focus:ring-green-900 focus:border-green-900";
-    history.replaceState(null, '', `${window.location.origin}/${uptime}`)
+    history.replaceState(null, "", `${window.location.origin}/${uptime}`);
     dispatch("update", uptime);
   }
 </script>
