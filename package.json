@@ -6,7 +6,7 @@
   "license": "MIT",
   "author": "Sean Lingren <sean@lingrino.com> (https://lingrino.com/)",
   "scripts": {
-    "start": "snowpack dev",
+    "dev": "snowpack dev",
     "build": "snowpack build",
     "test": "exit 0",
     "lint": "eslint --fix .",
@@ -20,7 +20,6 @@
     "tailwindcss": "^2.1.1"
   },
   "devDependencies": {
-    "@snowpack/app-scripts-svelte": "^2.0.0",
     "@snowpack/plugin-build-script": "^2.1.0",
     "@snowpack/plugin-dotenv": "^2.1.0",
     "@snowpack/plugin-svelte": "^3.6.1",

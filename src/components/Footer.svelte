@@ -1,5 +1,5 @@
 <footer>
-  <div class="pt-10 pb-4 text-center text-lg">
+  <div class="py-4 text-center text-lg">
     Made by <a
       href="https://lingrino.com"
       target="_blank"

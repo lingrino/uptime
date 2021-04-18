@@ -13,12 +13,17 @@
     }
 
     borderstyle = "focus:ring-green-900 focus:border-green-900";
+    window.history.replaceState(
+      {},
+      uptime.toString(),
+      `${window.location.origin}/${uptime}`
+    );
     dispatch("update", uptime);
   }
 </script>
 
-<div class="flex justify-center mb-10">
-  <div class="relative rounded-lg mx-4 w-full max-w-md shadow-md">
+<div class="flex justify-center">
+  <div class="relative rounded-lg w-full max-w-md shadow-md">
     <input
       type="text"
       class="py-3 pr-10 text-xl w-full rounded-lg {borderstyle}"
