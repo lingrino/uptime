@@ -5,14 +5,14 @@
 
   export let uptime: number = 99.9;
 
-  let bordercolor: string = "green-900";
+  let borderstyle: string = "focus:ring-green-900 focus:border-green-900";
   function handleInput() {
     if (Number.isNaN(+uptime) || uptime < 0 || uptime > 100) {
-      bordercolor = "red-500";
+      borderstyle = "focus:ring-red-500 focus:border-red-500";
       return;
     }
 
-    bordercolor = "green-900";
+    borderstyle = "focus:ring-green-900 focus:border-green-900";
     dispatch("update", uptime);
   }
 </script>
@@ -21,7 +21,7 @@
   <div class="relative rounded-lg mx-4 w-full max-w-md shadow-md">
     <input
       type="text"
-      class="py-3 pr-10 text-xl w-full focus:ring-{bordercolor} focus:border-{bordercolor} rounded-lg"
+      class="py-3 pr-10 text-xl w-full rounded-lg {borderstyle}"
       aria-label="uptime percentage"
       bind:value={uptime}
       on:input={handleInput}
