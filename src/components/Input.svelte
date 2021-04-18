@@ -18,12 +18,10 @@
 </script>
 
 <div class="flex justify-center mb-10">
-  <div class="relative rounded-lg shadow-md">
+  <div class="relative rounded-lg mx-4 w-full max-w-md shadow-md">
     <input
-      class="py-3 pr-10 text-xl focus:ring-{bordercolor} focus:border-{bordercolor} rounded-lg"
       type="text"
-      id="uptime"
-      name="uptime"
+      class="py-3 pr-10 text-xl w-full focus:ring-{bordercolor} focus:border-{bordercolor} rounded-lg"
       aria-label="uptime percentage"
       bind:value={uptime}
       on:input={handleInput}
