@@ -6,7 +6,7 @@
   "license": "MIT",
   "author": "Sean Lingren <sean@lingrino.com> (https://lingrino.com/)",
   "scripts": {
-    "start": "snowpack dev",
+    "dev": "snowpack dev",
     "build": "snowpack build",
     "test": "exit 0",
     "lint": "eslint --fix .",

@@ -4,7 +4,7 @@
   import Input from "./components/Input.svelte";
   import Downtime from "./components/Downtime.svelte";
   import Footer from "./components/Footer.svelte";
-  import { pathNumber } from "./components/Math.svelte";
+  import { pathNumber } from "./components/Router.svelte";
 
   let uptime = pathNumber(99.9);
 </script>
