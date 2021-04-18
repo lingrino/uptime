@@ -13,7 +13,11 @@
     }
 
     borderstyle = "focus:ring-green-900 focus:border-green-900";
-    window.history.replaceState({}, uptime.toString(), `${window.location.origin}/${uptime}`);
+    window.history.replaceState(
+      {},
+      uptime.toString(),
+      `${window.location.origin}/${uptime}`
+    );
     dispatch("update", uptime);
   }
 </script>
