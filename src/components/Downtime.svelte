@@ -3,11 +3,11 @@
 
   export let uptime: number = 99.9;
   $: downtime = [
-    { name: 'Daily', value: secondsToDhms(uptimeSeconds(uptime, 365)) },
-    { name: 'Weekly', value: secondsToDhms(uptimeSeconds(uptime, 52)) },
-    { name: 'Monthly', value: secondsToDhms(uptimeSeconds(uptime, 12)) },
-    { name: 'Quarterly', value: secondsToDhms(uptimeSeconds(uptime, 4)) },
-    { name: 'Yearly', value: secondsToDhms(uptimeSeconds(uptime, 1)) },
+    { name: "Daily", value: secondsToDhms(uptimeSeconds(uptime, 365)) },
+    { name: "Weekly", value: secondsToDhms(uptimeSeconds(uptime, 52)) },
+    { name: "Monthly", value: secondsToDhms(uptimeSeconds(uptime, 12)) },
+    { name: "Quarterly", value: secondsToDhms(uptimeSeconds(uptime, 4)) },
+    { name: "Yearly", value: secondsToDhms(uptimeSeconds(uptime, 1)) },
   ];
 </script>
 
