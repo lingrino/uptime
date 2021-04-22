@@ -13,12 +13,14 @@ This site is built with the following technologies. I chose them because they're
 
 Contributions are welcome! This site should remain simple and so anything that reduces complexity is most appreciated. Please open an issue if you have a question or you are unsure about an idea.
 
+I would like to add an API to this site. If the user appends `.json` to any url or `/api` before any query then the app should return json that represents the daily/weekly/etc... duration in seconds. That can be challenging with a static site but either a build-time script that generates json for every possible input (cloudflare limits to 20k files) or a cloudflare worker that generates responses dynamically would work.
+
 ## Development
 
 ### Start Dev Server
 
 ```shell
-npm run start
+npm run dev
 ```
 
 ### Run Tests
