@@ -23,7 +23,7 @@ module.exports = {
     minify: true,
     // splitting: true,
     target: "es2020",
-    treeshake: true,
+    // treeshake: true,
   },
   packageOptions: {
     installTypes: true,
