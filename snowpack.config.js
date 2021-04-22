@@ -19,9 +19,9 @@ module.exports = {
   ],
   optimize: {
     bundle: true,
-    manifest: true,
+    // manifest: true,
     minify: true,
-    splitting: true,
+    // splitting: true,
     target: "es2020",
     treeshake: true,
   },
