@@ -1,6 +1,7 @@
 {
   "name": "uptime",
   "description": "a simple uptime calculator",
+  "repository": "lingrino/uptime",
   "homepage": "https://uptime.how",
   "version": "1.0.0",
   "license": "MIT",
