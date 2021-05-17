@@ -23,7 +23,7 @@
   "devDependencies": {
     "@snowpack/plugin-build-script": "^2.1.0",
     "@snowpack/plugin-dotenv": "^2.1.0",
-    "@snowpack/plugin-svelte": "^3.6.1",
+    "@snowpack/plugin-svelte": "^3.7.0",
     "@snowpack/plugin-typescript": "^1.2.1",
     "@tsconfig/svelte": "^1.0.10",
     "@types/snowpack-env": "^2.3.3",
