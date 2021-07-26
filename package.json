@@ -18,7 +18,7 @@
   "dependencies": {
     "@tailwindcss/forms": "^0.3.3",
     "svelte": "^3.38.3",
-    "tailwindcss": "^2.2.4"
+    "tailwindcss": "^2.2.7"
   },
   "devDependencies": {
     "@snowpack/plugin-build-script": "^2.1.0",
