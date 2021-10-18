@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.3.4",
-    "svelte": "^3.43.1",
+    "svelte": "^3.44.0",
     "tailwindcss": "^2.2.16"
   },
   "devDependencies": {
