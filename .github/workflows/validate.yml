@@ -9,7 +9,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install Node
-        uses: actions/setup-node@v3.0.0
+        uses: actions/setup-node@v3.1.0
         with:
           node-version: "15" # https://nodejs.org/en/download/current/
       - name: Install Dependencies
@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install Node
-        uses: actions/setup-node@v3.0.0
+        uses: actions/setup-node@v3.1.0
         with:
           node-version: "15" # https://nodejs.org/en/download/current/
       - name: Install Dependencies
@@ -37,7 +37,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install Node
-        uses: actions/setup-node@v3.0.0
+        uses: actions/setup-node@v3.1.0
         with:
           node-version: "15" # https://nodejs.org/en/download/current/
       - name: Install Dependencies
