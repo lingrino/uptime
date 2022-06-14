@@ -4,7 +4,7 @@
     uptimePercent: number,
     divisor: number
   ): number {
-    const yearSeconds: number = 31556952;
+    const yearSeconds: number = 31557600;
     return Math.floor((yearSeconds / divisor) * (1 - uptimePercent / 100));
   }
 
