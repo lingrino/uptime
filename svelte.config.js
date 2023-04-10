@@ -1,14 +1,11 @@
-const sveltepreprocess = require("svelte-preprocess");
-const tailwindcss = require("tailwindcss");
-const autoprefixer = require("autoprefixer");
+import adapter from "@sveltejs/adapter-cloudflare";
+import { vitePreprocess } from "@sveltejs/kit/vite";
 
-module.exports = {
-  preprocess: sveltepreprocess({
-    defaults: {
-      script: "typescript",
-    },
-    postcss: {
-      plugins: [tailwindcss, autoprefixer],
-    },
-  }),
+const config = {
+  preprocess: vitePreprocess(),
+  kit: {
+    adapter: adapter(),
+  },
 };
+
+export default config;

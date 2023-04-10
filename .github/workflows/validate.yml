@@ -11,7 +11,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v3.6.0
         with:
-          node-version: "15" # https://nodejs.org/en/download/current/
+          node-version: lts/*
       - name: Install Dependencies
         run: npm ci
       - name: Build Package
@@ -26,10 +26,10 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v3.6.0
         with:
-          node-version: "15" # https://nodejs.org/en/download/current/
+          node-version: lts/*
       - name: Install Dependencies
         run: npm ci
-      - name: Format
+      - name: Lint
         run: npm run lint:check
   format:
     runs-on: ubuntu-latest
@@ -39,7 +39,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v3.6.0
         with:
-          node-version: "15" # https://nodejs.org/en/download/current/
+          node-version: lts/*
       - name: Install Dependencies
         run: npm ci
       - name: Format

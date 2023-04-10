@@ -6,7 +6,6 @@ This site is built with the following technologies. I chose them because they're
 
 - [Svelte](https://svelte.dev)
 - [Tailwind](https://tailwindcss.com/)
-- [Snowpack](https://www.snowpack.dev/)
 - [Cloudflare Pages](https://pages.cloudflare.com/)
 
 ## Contributing
