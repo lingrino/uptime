@@ -7,7 +7,6 @@
   "license": "MIT",
   "author": "Sean Lingren <sean@lingrino.com> (https://lingrino.com/)",
   "type": "module",
-  "packageManager": "pnpm@8.1.1",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
