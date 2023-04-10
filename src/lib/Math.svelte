@@ -1,10 +1,10 @@
-<script lang="typescript" context="module">
+<script lang="ts" context="module">
   // allowed uptime in seconds given a percent and portion of the year
   export function uptimeSeconds(
     uptimePercent: number,
     divisor: number
   ): number {
-    const yearSeconds: number = 31557600;
+    const yearSeconds = 31557600;
     return Math.floor((yearSeconds / divisor) * (1 - uptimePercent / 100));
   }
 

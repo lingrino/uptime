@@ -1,7 +1,9 @@
-const forms = require("@tailwindcss/forms");
+import forms from "@tailwindcss/forms";
 
-module.exports = {
-  mode: "jit",
-  purge: ["./public/**/*.html", "./src/**/*.{js,jsx,ts,tsx,svelte}"],
+export default {
+  content: ["./src/**/*.{html,js,svelte,ts}"],
+  theme: {
+    extend: {},
+  },
   plugins: [forms],
 };

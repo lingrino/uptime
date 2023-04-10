@@ -37,7 +37,7 @@
 
     <!-- Metadata -->
     <meta name="referrer" content="no-referrer" />
-    <link rel="manifest" href="assets/site/site.webmanifest" />
+    <link rel="manifest" href="%sveltekit.assets%/site/site.webmanifest" />
 
     <!-- Titles -->
     <title>Uptime Calculator</title>
@@ -52,22 +52,22 @@
       rel="icon"
       type="image/png"
       sizes="192x192"
-      href="/assets/icons/favicon-192x192.png"
+      href="%sveltekit.assets%/icons/favicon-192x192.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="/assets/icons/favicon-16x16.png"
+      href="%sveltekit.assets%/icons/favicon-16x16.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="192x192"
-      href="/assets/icons/favicon-192x192.png"
+      href="%sveltekit.assets%/icons/favicon-192x192.png"
     />
     <link
       rel="apple-touch-startup-image"
-      href="/assets/icons/favicon-192x192.png"
+      href="%sveltekit.assets%/icons/favicon-192x192.png"
     />
 
     <!--
@@ -79,28 +79,33 @@
       name="apple-mobile-web-app-status-bar-style"
       content="black-translucent"
     />
+    %sveltekit.head%
   </head>
 
-  <body>
+  <body data-sveltekit-preload-data="hover">
     <noscript>
       <style>
         #nojs {
           text-align: right;
           font-family: monospace;
         }
+
         #nojs h1 {
           color: #064e3b;
           font-size: 4em;
           text-align: center;
         }
+
         #nojs h3 {
           padding-top: 20px;
           text-align: center;
         }
+
         #nojs table {
           margin: auto;
           border-collapse: collapse;
         }
+
         #nojs th {
           color: white;
           font-size: 1.2em;
@@ -109,10 +114,12 @@
           border: 2px solid #6b7280;
           background-color: #064e3b;
         }
+
         #nojs td {
           border: 2px solid #6b7280;
           padding: 10px;
         }
+
         #nojs tr:nth-child(even) {
           background-color: #e5e7eb;
         }
@@ -203,6 +210,6 @@
         </h3>
       </div>
     </noscript>
-    <script type="module" src="/dist/index.js"></script>
+    <div style="display: contents">%sveltekit.body%</div>
   </body>
 </html>
