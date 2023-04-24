@@ -25,7 +25,7 @@
     "@sveltejs/vite-plugin-svelte": "^2.1.0",
     "@tailwindcss/forms": "^0.5.3",
     "@tsconfig/svelte": "^4.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.0",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.39.0",
