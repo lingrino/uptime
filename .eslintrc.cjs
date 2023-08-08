@@ -5,9 +5,10 @@ module.exports = {
     "eslint:recommended",
     "airbnb-base",
     "plugin:@typescript-eslint/recommended",
+    "plugin:svelte/recommended",
     "prettier",
   ],
-  plugins: ["svelte3", "@typescript-eslint"],
+  plugins: ["@typescript-eslint"],
   ignorePatterns: ["*.cjs"],
 
   env: {
@@ -19,17 +20,20 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2023,
     sourceType: "module",
+    extraFileExtensions: [".svelte"],
   },
 
   overrides: [
     {
       files: ["*.svelte"],
-      processor: "svelte3/svelte3",
+      parser: "svelte-eslint-parser",
+      parserOptions: {
+        parser: "@typescript-eslint/parser",
+      },
     },
   ],
 
   settings: {
-    "svelte3/typescript": () => require("typescript"),
     "import/resolver": {
       node: {
         extensions: [".js", ".jsx", ".ts", ".tsx"],
