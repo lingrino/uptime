@@ -2,7 +2,7 @@
   // allowed uptime in seconds given a percent and portion of the year
   export function uptimeSeconds(
     uptimePercent: number,
-    divisor: number
+    divisor: number,
   ): number {
     const yearSeconds = 31557600;
     return Math.floor((yearSeconds / divisor) * (1 - uptimePercent / 100));
