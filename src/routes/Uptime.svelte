@@ -32,7 +32,7 @@
       window.history.replaceState(
         null,
         "",
-        `${window.location.origin}/${uptime}`
+        `${window.location.origin}/${uptime}`,
       );
     }
   }
