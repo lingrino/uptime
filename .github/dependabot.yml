@@ -15,6 +15,7 @@ updates:
           - "*"
     reviewers:
       - lingrino
+
   - package-ecosystem: npm
     open-pull-requests-limit: 100
     directory: /
