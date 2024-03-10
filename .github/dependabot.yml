@@ -4,29 +4,30 @@ updates:
     open-pull-requests-limit: 100
     directory: /
     schedule:
-      time: "16:00"
+      time: "08:00"
+      timezone: "America/Los_Angeles"
       interval: weekly
     allow:
       - dependency-type: all
-    assignees:
-      - lingrino
+    groups:
+      all:
+        patterns:
+          - "*"
     reviewers:
       - lingrino
-    labels:
-      - dependencies
-      - actions
+
   - package-ecosystem: npm
     open-pull-requests-limit: 100
     directory: /
     schedule:
-      time: "16:00"
+      time: "08:00"
+      timezone: "America/Los_Angeles"
       interval: weekly
     allow:
       - dependency-type: all
-    assignees:
-      - lingrino
+    groups:
+      all:
+        patterns:
+          - "*"
     reviewers:
       - lingrino
-    labels:
-      - dependencies
-      - javascript
