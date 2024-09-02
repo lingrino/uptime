@@ -20,6 +20,8 @@
     "format:check": "prettier --check ."
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.9.1",
     "@sveltejs/adapter-cloudflare": "^4.7.2",
     "@sveltejs/kit": "^2.5.25",
     "@sveltejs/vite-plugin-svelte": "^3.1.2",
@@ -29,9 +31,9 @@
     "@typescript-eslint/parser": "^8.3.0",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.9.1",
-    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-svelte": "^2.43.0",
+    "globals": "^15.9.0",
     "postcss": "^8.4.38",
     "prettier": "^3.3.3",
     "prettier-plugin-svelte": "^3.2.6",
