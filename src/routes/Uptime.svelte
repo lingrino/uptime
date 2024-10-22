@@ -59,16 +59,18 @@
 <div class="flex justify-center">
   <div>
     <table class="table-auto">
-      {#each downtime as { name, value }}
-        <div class="table-row">
-          <div class="table-cell text-right pr-1 py-0.5">
-            <p class="sm:text-2xl">{name}:</p>
-          </div>
-          <div class="table-cell text-left pl-2 py-0.5">
-            <p class="sm:text-2xl">{value}</p>
-          </div>
-        </div>
-      {/each}
+      <tbody>
+        {#each downtime as { name, value }}
+          <tr class="table-row">
+            <td class="table-cell text-right pr-1 py-0.5">
+              <p class="sm:text-2xl">{name}:</p>
+            </td>
+            <td class="table-cell text-left pl-2 py-0.5">
+              <p class="sm:text-2xl">{value}</p>
+            </td>
+          </tr>
+        {/each}
+      </tbody>
     </table>
   </div>
 </div>
