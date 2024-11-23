@@ -5,7 +5,7 @@
   "homepage": "https://uptime.how",
   "version": "1.0.0",
   "license": "MIT",
-  "author": "Sean Lingren <sean@lingrino.com> (https://lingren.com/)",
+  "author": "Sean Lingren <sean@lingren.com> (https://lingrino.com/)",
   "type": "module",
   "scripts": {
     "dev": "vite dev",
