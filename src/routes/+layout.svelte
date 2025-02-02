@@ -9,7 +9,7 @@
 </svelte:head>
 
 <div class="flex flex-col min-h-screen bg-gray-100">
-  <div class="flex-grow">
+  <div class="grow">
     <div class="my-10 sm:mb-14 lg:mb-20">
       <header>
         <div class="text-center">

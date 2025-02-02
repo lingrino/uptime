@@ -1,10 +1,11 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
+  import { replaceState } from "$app/navigation";
   import { browser } from "$app/environment";
   import { uptimeSeconds, secondsToDhms } from "$lib/Math.svelte";
 
-  let { uptime } = $page.data;
-  let borderstyle = "focus:ring-green-900 focus:border-green-900";
+  let { uptime } = page.data;
+  let borderstyle = "focus:ring-2 focus:ring-green-900 focus:border-green-900";
   let downtime = [
     { name: "Daily", value: secondsToDhms(uptimeSeconds(uptime, 365)) },
     { name: "Weekly", value: secondsToDhms(uptimeSeconds(uptime, 52)) },
@@ -15,11 +16,11 @@
 
   function handleInput() {
     if (Number.isNaN(+uptime) || uptime < 0 || uptime > 100) {
-      borderstyle = "focus:ring-red-500 focus:border-red-500";
+      borderstyle = "focus:ring-2 focus:ring-red-500 focus:border-red-500";
       return;
     }
 
-    borderstyle = "focus:ring-green-900 focus:border-green-900";
+    borderstyle = "focus:ring-2 focus:ring-green-900 focus:border-green-900";
     downtime = [
       { name: "Daily", value: secondsToDhms(uptimeSeconds(uptime, 365)) },
       { name: "Weekly", value: secondsToDhms(uptimeSeconds(uptime, 52)) },
@@ -29,11 +30,7 @@
     ];
 
     if (browser) {
-      window.history.replaceState(
-        null,
-        "",
-        `${window.location.origin}/${uptime}`,
-      );
+      replaceState(new URL(`${window.location.origin}/${uptime}`), {});
     }
   }
 </script>
