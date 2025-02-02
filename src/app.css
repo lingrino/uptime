@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: "berkeley-mono-variable";
-  src: url("fonts/berkeley-mono-variable.woff2") format("woff2");
+  src: url("/fonts/berkeley-mono-variable.woff2") format("woff2");
 }
 
 .main {
