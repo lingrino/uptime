@@ -85,9 +85,15 @@
   <body data-sveltekit-preload-data="hover">
     <noscript>
       <style>
+        @font-face {
+          font-family: "berkeley-mono-variable";
+          src: url("static/fonts/berkeley-mono-variable.woff2") format("woff2");
+        }
+
         #nojs {
           text-align: right;
-          font-family: monospace;
+          font-family: "berkeley-mono-variable", ui-monospace;
+          font-stretch: condensed;
         }
 
         #nojs h1 {

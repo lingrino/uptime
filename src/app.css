@@ -1,2 +1,12 @@
 @config "../tailwind.config.js";
 @import "tailwindcss";
+
+@font-face {
+  font-family: "berkeley-mono-variable";
+  src: url("/fonts/berkeley-mono-variable.woff2") format("woff2");
+}
+
+.main {
+  font-family: "berkeley-mono-variable", ui-monospace;
+  font-stretch: condensed;
+}

@@ -8,7 +8,7 @@
   <meta name="description" content="Uptime Calculator" />
 </svelte:head>
 
-<div class="flex flex-col min-h-screen bg-gray-100">
+<div class="main flex flex-col min-h-screen">
   <div class="grow">
     <div class="my-10 sm:mb-14 lg:mb-20">
       <header>
@@ -30,7 +30,7 @@
           target="_blank"
           rel="noopener"
           class="text-blue-600">Sean Lingren</a
-        >&nbsp;&nbsp;•&nbsp;&nbsp;<a
+        >&nbsp;•&nbsp;<a
           href="https://github.com/lingrino/uptime"
           target="_blank"
           rel="noopener"
