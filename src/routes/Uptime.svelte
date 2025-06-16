@@ -57,7 +57,7 @@
   <div>
     <table class="table-auto">
       <tbody>
-        {#each downtime as { name, value }}
+        {#each downtime as { name, value } (name)}
           <tr class="table-row">
             <td class="table-cell text-right pr-1 py-0.5">
               <p class="sm:text-2xl">{name}:</p>
