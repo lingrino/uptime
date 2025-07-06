@@ -9,7 +9,7 @@
   "packageRules": [
     {
       "groupName": "all",
-      "matchManagers": ["github-actions", "npm"]
+      "matchManagers": ["github-actions", "npm", "nvm"]
     }
   ]
 }
