@@ -87,135 +87,195 @@
       <style>
         @font-face {
           font-family: "berkeley-mono-variable";
-          src: url("static/fonts/berkeley-mono-variable.woff2") format("woff2");
+          src: url("fonts/berkeley-mono-variable.woff2") format("woff2");
         }
 
         #nojs {
-          text-align: right;
-          font-family: "berkeley-mono-variable", ui-monospace;
+          font-family: "berkeley-mono-variable", ui-monospace, monospace;
           font-stretch: condensed;
+          background-color: #fafafa;
+          min-height: 100vh;
+          padding: 4rem 1rem 2rem;
         }
 
         #nojs h1 {
-          color: #064e3b;
-          font-size: 4em;
+          color: #18181b;
+          font-size: 3rem;
+          font-weight: 500;
           text-align: center;
+          letter-spacing: -0.025em;
+          margin-bottom: 3rem;
         }
 
         #nojs h3 {
-          padding-top: 20px;
+          color: #71717a;
+          font-size: 0.875rem;
           text-align: center;
+          margin-top: 2rem;
+          max-width: 32rem;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .table-container {
+          max-width: 48rem;
+          margin: 0 auto;
+          background: white;
+          border-radius: 0.5rem;
+          border: 1px solid #e4e4e7;
+          box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+          overflow: hidden;
         }
 
         #nojs table {
-          margin: auto;
-          border-collapse: collapse;
+          width: 100%;
+          border-collapse: separate;
+          border-spacing: 0;
         }
 
         #nojs th {
-          color: white;
-          font-size: 1.2em;
-          text-align: center;
-          padding: 10px 14px;
-          border: 2px solid #6b7280;
-          background-color: #064e3b;
+          background-color: #f4f4f5;
+          color: #71717a;
+          font-size: 0.75rem;
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          text-align: left;
+          padding: 1rem 1.5rem;
+          border-bottom: 1px solid #e4e4e7;
+        }
+
+        #nojs th:first-child {
+          text-align: left;
+        }
+
+        #nojs th:not(:first-child) {
+          text-align: right;
         }
 
         #nojs td {
-          border: 2px solid #6b7280;
-          padding: 10px;
+          padding: 1rem 1.5rem;
+          border-bottom: 1px solid #f4f4f5;
         }
 
-        #nojs tr:nth-child(even) {
-          background-color: #e5e7eb;
+        #nojs td:first-child {
+          color: #71717a;
+          font-size: 0.875rem;
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+
+        #nojs td:not(:first-child) {
+          color: #18181b;
+          font-size: 1.125rem;
+          text-align: right;
+        }
+
+        #nojs tr:last-child td {
+          border-bottom: none;
         }
       </style>
       <div id="nojs">
         <h1>Uptime Calculator</h1>
-        <table>
-          <thead>
-            <tr>
-              <th><b>Availability</b></th>
-              <th><b>Daily</b></th>
-              <th><b>Weekly</b></th>
-              <th><b>Monthly</b></th>
-              <th><b>Quarterly</b></th>
-              <th><b>Yearly</b></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><b>99.999%</b></td>
-              <td>0s</td>
-              <td>6s</td>
-              <td>26s</td>
-              <td>1m&nbsp;18s</td>
-              <td>5m&nbsp;15s</td>
-            </tr>
-            <tr>
-              <td><b>99.99%</b></td>
-              <td>8s</td>
-              <td>1m&nbsp;&nbsp;0s</td>
-              <td>4m&nbsp;22s</td>
-              <td>13m&nbsp;&nbsp;8s</td>
-              <td>52m&nbsp;35s</td>
-            </tr>
-            <tr>
-              <td><b>99.95%</b></td>
-              <td>43s</td>
-              <td>5m&nbsp;&nbsp;3s</td>
-              <td>21m&nbsp;54s</td>
-              <td>5m&nbsp;44s</td>
-              <td>4h&nbsp;22m&nbsp;58s</td>
-            </tr>
-            <tr>
-              <td><b>99.9%</b></td>
-              <td>1m&nbsp;26s</td>
-              <td>10m&nbsp;&nbsp;6s</td>
-              <td>43m&nbsp;49s</td>
-              <td>2h&nbsp;11m&nbsp;29s</td>
-              <td>8h&nbsp;45m&nbsp;56s</td>
-            </tr>
-            <tr>
-              <td><b>99.5%</b></td>
-              <td>7m&nbsp;12s</td>
-              <td>50m&nbsp;34s</td>
-              <td>3h&nbsp;39m&nbsp;&nbsp;8s</td>
-              <td>10h&nbsp;57m&nbsp;26s</td>
-              <td>1d&nbsp;19h&nbsp;49m&nbsp;44s</td>
-            </tr>
-            <tr>
-              <td><b>99%</b></td>
-              <td>14m&nbsp;24s</td>
-              <td>1h&nbsp;41m&nbsp;&nbsp;8s</td>
-              <td>7h&nbsp;18m&nbsp;17s</td>
-              <td>21h&nbsp;54m&nbsp;52s</td>
-              <td>3d&nbsp;15h&nbsp;39m&nbsp;29s</td>
-            </tr>
-            <tr>
-              <td><b>95%</b></td>
-              <td>1h&nbsp;12m&nbsp;&nbsp;2s</td>
-              <td>8h&nbsp;25m&nbsp;43s</td>
-              <td>1d&nbsp;12h&nbsp;31m&nbsp;27s</td>
-              <td>4d&nbsp;13h&nbsp;34m&nbsp;21s</td>
-              <td>18d&nbsp;&nbsp;6h&nbsp;17m&nbsp;27s</td>
-            </tr>
-            <tr>
-              <td><b>90%</b></td>
-              <td>2h&nbsp;24m&nbsp;&nbsp;5s</td>
-              <td>16h&nbsp;51m&nbsp;26s</td>
-              <td>3d&nbsp;&nbsp;1h&nbsp;&nbsp;2m&nbsp;54s</td>
-              <td>9d&nbsp;&nbsp;3h&nbsp;&nbsp;8m&nbsp;43s</td>
-              <td>36d&nbsp;12h&nbsp;34m&nbsp;55s</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th><b>Availability</b></th>
+                <th><b>Daily</b></th>
+                <th><b>Weekly</b></th>
+                <th><b>Monthly</b></th>
+                <th><b>Quarterly</b></th>
+                <th><b>Yearly</b></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>99.999%</b></td>
+                <td>0s</td>
+                <td>6s</td>
+                <td>26s</td>
+                <td>1m&nbsp;18s</td>
+                <td>5m&nbsp;15s</td>
+              </tr>
+              <tr>
+                <td><b>99.99%</b></td>
+                <td>8s</td>
+                <td>1m&nbsp;&nbsp;0s</td>
+                <td>4m&nbsp;22s</td>
+                <td>13m&nbsp;&nbsp;8s</td>
+                <td>52m&nbsp;35s</td>
+              </tr>
+              <tr>
+                <td><b>99.95%</b></td>
+                <td>43s</td>
+                <td>5m&nbsp;&nbsp;3s</td>
+                <td>21m&nbsp;54s</td>
+                <td>5m&nbsp;44s</td>
+                <td>4h&nbsp;22m&nbsp;58s</td>
+              </tr>
+              <tr>
+                <td><b>99.9%</b></td>
+                <td>1m&nbsp;26s</td>
+                <td>10m&nbsp;&nbsp;6s</td>
+                <td>43m&nbsp;49s</td>
+                <td>2h&nbsp;11m&nbsp;29s</td>
+                <td>8h&nbsp;45m&nbsp;56s</td>
+              </tr>
+              <tr>
+                <td><b>99.5%</b></td>
+                <td>7m&nbsp;12s</td>
+                <td>50m&nbsp;34s</td>
+                <td>3h&nbsp;39m&nbsp;&nbsp;8s</td>
+                <td>10h&nbsp;57m&nbsp;26s</td>
+                <td>1d&nbsp;19h&nbsp;49m&nbsp;44s</td>
+              </tr>
+              <tr>
+                <td><b>99%</b></td>
+                <td>14m&nbsp;24s</td>
+                <td>1h&nbsp;41m&nbsp;&nbsp;8s</td>
+                <td>7h&nbsp;18m&nbsp;17s</td>
+                <td>21h&nbsp;54m&nbsp;52s</td>
+                <td>3d&nbsp;15h&nbsp;39m&nbsp;29s</td>
+              </tr>
+              <tr>
+                <td><b>95%</b></td>
+                <td>1h&nbsp;12m&nbsp;&nbsp;2s</td>
+                <td>8h&nbsp;25m&nbsp;43s</td>
+                <td>1d&nbsp;12h&nbsp;31m&nbsp;27s</td>
+                <td>4d&nbsp;13h&nbsp;34m&nbsp;21s</td>
+                <td>18d&nbsp;&nbsp;6h&nbsp;17m&nbsp;27s</td>
+              </tr>
+              <tr>
+                <td><b>90%</b></td>
+                <td>2h&nbsp;24m&nbsp;&nbsp;5s</td>
+                <td>16h&nbsp;51m&nbsp;26s</td>
+                <td>3d&nbsp;&nbsp;1h&nbsp;&nbsp;2m&nbsp;54s</td>
+                <td>9d&nbsp;&nbsp;3h&nbsp;&nbsp;8m&nbsp;43s</td>
+                <td>36d&nbsp;12h&nbsp;34m&nbsp;55s</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <h3>
           I hope this uptime table is useful! This site has no tracking but
           needs JavaScript to work as intended.
         </h3>
       </div>
     </noscript>
-    <div style="display: contents">%sveltekit.body%</div>
+    <div style="display: contents" class="js-enabled">%sveltekit.body%</div>
+    <style>
+      .js-enabled {
+        display: contents;
+      }
+    </style>
+    <noscript>
+      <style>
+        .js-enabled {
+          display: none !important;
+        }
+      </style>
+    </noscript>
   </body>
 </html>

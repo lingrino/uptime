@@ -8,33 +8,39 @@
   <meta name="description" content="Uptime Calculator" />
 </svelte:head>
 
-<div class="main flex flex-col min-h-screen">
+<div class="main flex flex-col min-h-screen bg-zinc-50">
   <div class="grow">
-    <div class="my-10 sm:mb-14 lg:mb-20">
+    <div class="pt-16 pb-12">
       <header>
         <div class="text-center">
-          <p class="text-6xl sm:text-9xl text-green-900">Uptime Calculator</p>
+          <h1
+            class="text-4xl sm:text-5xl text-zinc-900 font-medium tracking-tight"
+          >
+            Uptime Calculator
+          </h1>
         </div>
       </header>
     </div>
-    <main>
+    <main class="pb-16">
       <slot />
       <Uptime />
     </main>
   </div>
-  <div class="mx-4 mt-10">
+  <div class="border-t border-zinc-200 bg-white">
     <footer>
-      <div class="py-4 text-center text-lg">
+      <div class="py-8 text-center text-sm text-zinc-500">
         Made by <a
           href="https://lingrino.com"
           target="_blank"
           rel="noopener"
-          class="text-blue-600">Sean Lingren</a
+          class="text-zinc-700 hover:text-zinc-900 transition-colors"
+          >Sean Lingren</a
         >&nbsp;•&nbsp;<a
           href="https://github.com/lingrino/uptime"
           target="_blank"
           rel="noopener"
-          class="text-blue-600">Source Code</a
+          class="text-zinc-700 hover:text-zinc-900 transition-colors"
+          >Source Code</a
         >
       </div>
     </footer>

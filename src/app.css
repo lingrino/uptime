@@ -7,6 +7,12 @@
 }
 
 .main {
-  font-family: "berkeley-mono-variable", ui-monospace;
+  font-family: "berkeley-mono-variable", ui-monospace, monospace;
+  font-stretch: condensed;
+}
+
+/* Ensure monospace font for data display */
+.font-mono {
+  font-family: "berkeley-mono-variable", ui-monospace, monospace;
   font-stretch: condensed;
 }
