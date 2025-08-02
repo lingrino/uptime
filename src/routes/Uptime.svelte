@@ -47,18 +47,26 @@
           bind:value={uptime}
           on:input={handleInput}
         />
-        <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+        <div
+          class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none"
+        >
           <span class="text-zinc-500 text-2xl">%</span>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="bg-white rounded-lg border border-zinc-200 shadow-sm overflow-hidden">
+  <div
+    class="bg-white rounded-lg border border-zinc-200 shadow-sm overflow-hidden"
+  >
     <div class="divide-y divide-zinc-100">
       {#each downtime as { name, value } (name)}
         <div class="flex justify-between items-center px-6 py-4">
-          <div class="text-zinc-500 text-sm font-medium uppercase tracking-wide">{name}</div>
+          <div
+            class="text-zinc-500 text-sm font-medium uppercase tracking-wide"
+          >
+            {name}
+          </div>
           <div class="text-zinc-900 font-mono text-lg">{value}</div>
         </div>
       {/each}

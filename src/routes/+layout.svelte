@@ -13,7 +13,11 @@
     <div class="pt-16 pb-12">
       <header>
         <div class="text-center">
-          <h1 class="text-4xl sm:text-5xl text-zinc-900 font-medium tracking-tight">Uptime Calculator</h1>
+          <h1
+            class="text-4xl sm:text-5xl text-zinc-900 font-medium tracking-tight"
+          >
+            Uptime Calculator
+          </h1>
         </div>
       </header>
     </div>
@@ -29,12 +33,14 @@
           href="https://lingrino.com"
           target="_blank"
           rel="noopener"
-          class="text-zinc-700 hover:text-zinc-900 transition-colors">Sean Lingren</a
+          class="text-zinc-700 hover:text-zinc-900 transition-colors"
+          >Sean Lingren</a
         >&nbsp;•&nbsp;<a
           href="https://github.com/lingrino/uptime"
           target="_blank"
           rel="noopener"
-          class="text-zinc-700 hover:text-zinc-900 transition-colors">Source Code</a
+          class="text-zinc-700 hover:text-zinc-900 transition-colors"
+          >Source Code</a
         >
       </div>
     </footer>
