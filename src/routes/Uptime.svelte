@@ -2,6 +2,7 @@
   import { page } from "$app/state";
   import { replaceState } from "$app/navigation";
   import { browser } from "$app/environment";
+  import { resolve } from "$app/paths";
   import { uptimeSeconds, secondsToDhms } from "$lib/Math.svelte";
 
   let { uptime } = page.data;
@@ -30,7 +31,7 @@
     ];
 
     if (browser) {
-      replaceState(new URL(`${window.location.origin}/${uptime}`), {});
+      replaceState(resolve(`/${uptime}`), {});
     }
   }
 </script>
