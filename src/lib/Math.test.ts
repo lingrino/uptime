@@ -24,7 +24,11 @@ describe("uptimeSeconds", () => {
   });
 
   it("handles 0% uptime", () => {
-    expect(uptimeSeconds(0, 1)).toBe(31557600);
+    expect(uptimeSeconds(0, 1)).toBe(31557600); // Yearly: full year
+    expect(uptimeSeconds(0, 365)).toBe(86400); // Daily: exactly 24 hours
+    expect(uptimeSeconds(0, 52)).toBe(604800); // Weekly: exactly 7 days
+    expect(uptimeSeconds(0, 12)).toBe(2629800); // Monthly: average month
+    expect(uptimeSeconds(0, 4)).toBe(7889400); // Quarterly: average quarter
   });
 });
 

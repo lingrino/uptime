@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
   <head>
     <!--
         HTML Head Tags
@@ -15,13 +16,10 @@
         Docs: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
         Docs: https://infosec.mozilla.org/guidelines/web_security#http-strict-transport-security
       -->
-    <meta
-      http-equiv="Strict-Transport-Security"
-      content="
+    <meta http-equiv="Strict-Transport-Security" content="
         max-age=63072000;
         includeSubDomains;
-        preload;"
-    />
+        preload;" />
 
     <!--
         X-XSS-Protection
@@ -48,37 +46,17 @@
         Docs: https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/
         Generated: https://favicon.io/favicon-generator/?t=SL&ff=Ubuntu+Mono&fs=90&fc=%23ececec&b=rounded&bc=%23222831
       -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="%sveltekit.assets%/icons/favicon-192x192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="%sveltekit.assets%/icons/favicon-16x16.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="192x192"
-      href="%sveltekit.assets%/icons/favicon-192x192.png"
-    />
-    <link
-      rel="apple-touch-startup-image"
-      href="%sveltekit.assets%/icons/favicon-192x192.png"
-    />
+    <link rel="icon" type="image/png" sizes="192x192" href="%sveltekit.assets%/icons/favicon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="%sveltekit.assets%/icons/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="%sveltekit.assets%/icons/favicon-192x192.png" />
+    <link rel="apple-touch-startup-image" href="%sveltekit.assets%/icons/favicon-192x192.png" />
 
     <!--
         Colors
         Docs: https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/
       -->
     <meta name="theme-color" content="#064E3B" />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent"
-    />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     %sveltekit.head%
   </head>
 
@@ -118,7 +96,7 @@
         }
 
         .table-container {
-          max-width: 48rem;
+          max-width: 60rem;
           margin: 0 auto;
           background: white;
           border-radius: 0.5rem;
@@ -202,58 +180,58 @@
               <tr>
                 <td><b>99.99%</b></td>
                 <td>8s</td>
-                <td>1m&nbsp;&nbsp;0s</td>
+                <td>1m&nbsp;0s</td>
                 <td>4m&nbsp;22s</td>
-                <td>13m&nbsp;&nbsp;8s</td>
+                <td>13m&nbsp;8s</td>
                 <td>52m&nbsp;35s</td>
               </tr>
               <tr>
                 <td><b>99.95%</b></td>
                 <td>43s</td>
-                <td>5m&nbsp;&nbsp;3s</td>
+                <td>5m&nbsp;2s</td>
                 <td>21m&nbsp;54s</td>
-                <td>5m&nbsp;44s</td>
+                <td>1h&nbsp;5m&nbsp;44s</td>
                 <td>4h&nbsp;22m&nbsp;58s</td>
               </tr>
               <tr>
                 <td><b>99.9%</b></td>
                 <td>1m&nbsp;26s</td>
-                <td>10m&nbsp;&nbsp;6s</td>
+                <td>10m&nbsp;4s</td>
                 <td>43m&nbsp;49s</td>
                 <td>2h&nbsp;11m&nbsp;29s</td>
-                <td>8h&nbsp;45m&nbsp;56s</td>
+                <td>8h&nbsp;45m&nbsp;57s</td>
               </tr>
               <tr>
                 <td><b>99.5%</b></td>
                 <td>7m&nbsp;12s</td>
-                <td>50m&nbsp;34s</td>
-                <td>3h&nbsp;39m&nbsp;&nbsp;8s</td>
-                <td>10h&nbsp;57m&nbsp;26s</td>
-                <td>1d&nbsp;19h&nbsp;49m&nbsp;44s</td>
+                <td>50m&nbsp;24s</td>
+                <td>3h&nbsp;39m&nbsp;9s</td>
+                <td>10h&nbsp;57m&nbsp;27s</td>
+                <td>1d&nbsp;19h&nbsp;49m&nbsp;48s</td>
               </tr>
               <tr>
                 <td><b>99%</b></td>
                 <td>14m&nbsp;24s</td>
-                <td>1h&nbsp;41m&nbsp;&nbsp;8s</td>
-                <td>7h&nbsp;18m&nbsp;17s</td>
-                <td>21h&nbsp;54m&nbsp;52s</td>
-                <td>3d&nbsp;15h&nbsp;39m&nbsp;29s</td>
+                <td>1h&nbsp;40m&nbsp;48s</td>
+                <td>7h&nbsp;18m&nbsp;18s</td>
+                <td>21h&nbsp;54m&nbsp;54s</td>
+                <td>3d&nbsp;15h&nbsp;39m&nbsp;36s</td>
               </tr>
               <tr>
                 <td><b>95%</b></td>
-                <td>1h&nbsp;12m&nbsp;&nbsp;2s</td>
-                <td>8h&nbsp;25m&nbsp;43s</td>
-                <td>1d&nbsp;12h&nbsp;31m&nbsp;27s</td>
-                <td>4d&nbsp;13h&nbsp;34m&nbsp;21s</td>
-                <td>18d&nbsp;&nbsp;6h&nbsp;17m&nbsp;27s</td>
+                <td>1h&nbsp;12m&nbsp;0s</td>
+                <td>8h&nbsp;24m&nbsp;0s</td>
+                <td>1d&nbsp;12h&nbsp;31m&nbsp;30s</td>
+                <td>4d&nbsp;13h&nbsp;34m&nbsp;30s</td>
+                <td>18d&nbsp;6h&nbsp;18m&nbsp;0s</td>
               </tr>
               <tr>
                 <td><b>90%</b></td>
-                <td>2h&nbsp;24m&nbsp;&nbsp;5s</td>
-                <td>16h&nbsp;51m&nbsp;26s</td>
-                <td>3d&nbsp;&nbsp;1h&nbsp;&nbsp;2m&nbsp;54s</td>
-                <td>9d&nbsp;&nbsp;3h&nbsp;&nbsp;8m&nbsp;43s</td>
-                <td>36d&nbsp;12h&nbsp;34m&nbsp;55s</td>
+                <td>2h&nbsp;23m&nbsp;59s</td>
+                <td>16h&nbsp;47m&nbsp;59s</td>
+                <td>3d&nbsp;1h&nbsp;2m&nbsp;59s</td>
+                <td>9d&nbsp;3h&nbsp;8m&nbsp;59s</td>
+                <td>36d&nbsp;12h&nbsp;35m&nbsp;59s</td>
               </tr>
             </tbody>
           </table>
@@ -278,4 +256,5 @@
       </style>
     </noscript>
   </body>
+
 </html>
