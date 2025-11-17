@@ -19,7 +19,7 @@
 
     // Use exact duration if available, otherwise fall back to division
     const periodDuration = periodSeconds[divisor] ?? yearSeconds / divisor;
-    return Math.floor(periodDuration * (1 - uptimePercent / 100));
+    return Math.round(periodDuration * (1 - uptimePercent / 100));
   }
 
   // friendly format seconds

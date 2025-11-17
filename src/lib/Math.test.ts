@@ -3,19 +3,19 @@ import { uptimeSeconds, secondsToDhms } from "./Math.svelte";
 
 describe("uptimeSeconds", () => {
   it("calculates downtime seconds for yearly period", () => {
-    expect(uptimeSeconds(99.9, 1)).toBe(31557);
-    expect(uptimeSeconds(99.99, 1)).toBe(3155);
-    expect(uptimeSeconds(99.999, 1)).toBe(315);
+    expect(uptimeSeconds(99.9, 1)).toBe(31558);
+    expect(uptimeSeconds(99.99, 1)).toBe(3156);
+    expect(uptimeSeconds(99.999, 1)).toBe(316);
   });
 
   it("calculates downtime seconds for monthly period", () => {
-    expect(uptimeSeconds(99.9, 12)).toBe(2629);
-    expect(uptimeSeconds(99.99, 12)).toBe(262);
+    expect(uptimeSeconds(99.9, 12)).toBe(2630);
+    expect(uptimeSeconds(99.99, 12)).toBe(263);
   });
 
   it("calculates downtime seconds for daily period", () => {
     expect(uptimeSeconds(99.9, 365)).toBe(86);
-    expect(uptimeSeconds(99.99, 365)).toBe(8);
+    expect(uptimeSeconds(99.99, 365)).toBe(9);
   });
 
   it("handles 100% uptime", () => {
