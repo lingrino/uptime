@@ -4,8 +4,22 @@
     uptimePercent: number,
     divisor: number,
   ): number {
+    // Use exact period durations to avoid rounding issues
+    // Year constant: 365.25 days = 31557600 seconds (accounts for leap years)
     const yearSeconds = 31557600;
-    return Math.floor((yearSeconds / divisor) * (1 - uptimePercent / 100));
+
+    // Define exact period durations in seconds
+    const periodSeconds: Record<number, number> = {
+      365: 86400, // Daily: exactly 24 hours
+      52: 604800, // Weekly: exactly 7 days
+      12: 2629800, // Monthly: average month (31557600 / 12)
+      4: 7889400, // Quarterly: average quarter (31557600 / 4)
+      1: 31557600, // Yearly: 365.25 days
+    };
+
+    // Use exact duration if available, otherwise fall back to division
+    const periodDuration = periodSeconds[divisor] ?? yearSeconds / divisor;
+    return Math.round(periodDuration * (1 - uptimePercent / 100));
   }
 
   // friendly format seconds
