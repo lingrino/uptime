@@ -36,5 +36,10 @@
     "formatter": {
       "quoteStyle": "double"
     }
+  },
+  "html": {
+    "formatter": {
+      "indentScriptAndStyle": true
+    }
   }
 }

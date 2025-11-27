@@ -1,6 +1,6 @@
 <script lang="ts">
-import "../app.css";
-import Uptime from "./Uptime.svelte";
+  import "../app.css";
+  import Uptime from "./Uptime.svelte";
 </script>
 
 <svelte:head>
