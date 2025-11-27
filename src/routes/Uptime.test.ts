@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 describe("Uptime Component Logic", () => {
   it("validates uptime input ranges", () => {

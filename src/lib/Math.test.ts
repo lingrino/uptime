@@ -1,5 +1,5 @@
-import { describe, it, expect } from "vitest";
-import { uptimeSeconds, secondsToDhms } from "./Math.svelte";
+import { describe, expect, it } from "vitest";
+import { secondsToDhms, uptimeSeconds } from "./Math.svelte";
 
 describe("uptimeSeconds", () => {
   it("calculates downtime seconds for yearly period", () => {

@@ -1,13 +1,28 @@
 <script lang="ts">
-  import { page } from "$app/state";
-  import { replaceState } from "$app/navigation";
-  import { browser } from "$app/environment";
-  import { resolve } from "$app/paths";
-  import { uptimeSeconds, secondsToDhms } from "$lib/Math.svelte";
+import { browser } from "$app/environment";
+import { replaceState } from "$app/navigation";
+import { resolve } from "$app/paths";
+import { page } from "$app/state";
+import { secondsToDhms, uptimeSeconds } from "$lib/Math.svelte";
 
-  let { uptime } = page.data;
-  let borderstyle = "focus:ring-2 focus:ring-zinc-400 focus:border-zinc-400";
-  let downtime = [
+const { uptime } = page.data;
+let borderstyle = "focus:ring-2 focus:ring-zinc-400 focus:border-zinc-400";
+let downtime = [
+  { name: "Daily", value: secondsToDhms(uptimeSeconds(uptime, 365)) },
+  { name: "Weekly", value: secondsToDhms(uptimeSeconds(uptime, 52)) },
+  { name: "Monthly", value: secondsToDhms(uptimeSeconds(uptime, 12)) },
+  { name: "Quarterly", value: secondsToDhms(uptimeSeconds(uptime, 4)) },
+  { name: "Yearly", value: secondsToDhms(uptimeSeconds(uptime, 1)) },
+];
+
+function handleInput() {
+  if (Number.isNaN(+uptime) || uptime < 0 || uptime > 100) {
+    borderstyle = "focus:ring-2 focus:ring-red-500 focus:border-red-500";
+    return;
+  }
+
+  borderstyle = "focus:ring-2 focus:ring-zinc-400 focus:border-zinc-400";
+  downtime = [
     { name: "Daily", value: secondsToDhms(uptimeSeconds(uptime, 365)) },
     { name: "Weekly", value: secondsToDhms(uptimeSeconds(uptime, 52)) },
     { name: "Monthly", value: secondsToDhms(uptimeSeconds(uptime, 12)) },
@@ -15,25 +30,10 @@
     { name: "Yearly", value: secondsToDhms(uptimeSeconds(uptime, 1)) },
   ];
 
-  function handleInput() {
-    if (Number.isNaN(+uptime) || uptime < 0 || uptime > 100) {
-      borderstyle = "focus:ring-2 focus:ring-red-500 focus:border-red-500";
-      return;
-    }
-
-    borderstyle = "focus:ring-2 focus:ring-zinc-400 focus:border-zinc-400";
-    downtime = [
-      { name: "Daily", value: secondsToDhms(uptimeSeconds(uptime, 365)) },
-      { name: "Weekly", value: secondsToDhms(uptimeSeconds(uptime, 52)) },
-      { name: "Monthly", value: secondsToDhms(uptimeSeconds(uptime, 12)) },
-      { name: "Quarterly", value: secondsToDhms(uptimeSeconds(uptime, 4)) },
-      { name: "Yearly", value: secondsToDhms(uptimeSeconds(uptime, 1)) },
-    ];
-
-    if (browser) {
-      replaceState(resolve(`/${uptime}`), {});
-    }
+  if (browser) {
+    replaceState(resolve(`/${uptime}`), {});
   }
+}
 </script>
 
 <div class="max-w-2xl mx-auto px-4">
