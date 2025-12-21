@@ -23,17 +23,21 @@ npm run check        # TypeScript/Svelte type checking
 ## Architecture
 
 ### Core Logic (`src/lib/Math.svelte`)
+
 Contains the two key functions exported as a module context:
+
 - `uptimeSeconds(percent, divisor)` - Calculates allowed downtime in seconds for a given uptime percentage and time period (365=daily, 52=weekly, 12=monthly, 4=quarterly, 1=yearly)
 - `secondsToDhms(seconds)` - Formats seconds into human-readable duration string
 
 ### Routing Structure (`src/routes/`)
+
 - **Dynamic route** `[uptime]/+page.ts` - Handles any numeric uptime value (e.g., `/99.95`)
 - **Named routes** (`five-nines/`, `four-nines/`, etc.) - SEO-friendly aliases that load preset uptime values
 - **`Uptime.svelte`** - Main UI component with input field and downtime display table
 - **`+layout.svelte`** - App shell that renders `Uptime.svelte` directly (all routes share the same UI)
 
 ### Key Patterns
+
 - Route `+page.ts` files only provide the initial `uptime` value via `PageLoad`
 - URL updates happen client-side via `replaceState()` as user types
 - Input validation accepts 0-100 range; invalid values fall back to 99.9
