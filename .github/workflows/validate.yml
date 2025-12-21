@@ -1,46 +1,46 @@
 on:
-  workflow_dispatch:
-  push:
+  pull_request:
+    types: [opened, synchronize, ready_for_review]
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: checkout
         uses: actions/checkout@v6
-      - name: Install Node
+      - name: install node
         uses: actions/setup-node@v6.0.0
         with:
           node-version: lts/*
-      - name: Install Dependencies
+      - name: install dependencies
         run: npm ci
-      - name: Build Package
+      - name: build package
         run: npm run build
-      - name: Run Tests
+      - name: run tests
         run: npm run test
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: checkout
         uses: actions/checkout@v6
-      - name: Install Node
+      - name: install node
         uses: actions/setup-node@v6.0.0
         with:
           node-version: lts/*
-      - name: Install Dependencies
+      - name: install dependencies
         run: npm ci
-      - name: Lint
+      - name: lint
         run: npm run lint:check
   format:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: checkout
         uses: actions/checkout@v6
-      - name: Install Node
+      - name: install node
         uses: actions/setup-node@v6.0.0
         with:
           node-version: lts/*
-      - name: Install Dependencies
+      - name: install dependencies
         run: npm ci
-      - name: Format
+      - name: format
         run: npm run format:check
