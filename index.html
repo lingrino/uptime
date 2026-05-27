@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Strict-Transport-Security"
+      content="max-age=63072000; includeSubDomains; preload;"
+    />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="description" content="Uptime Calculator" />
+    <meta name="theme-color" content="#064E3B" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <link rel="manifest" href="/site/site.webmanifest" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/icons/favicon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/icons/favicon-16x16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="192x192"
+      href="/icons/favicon-192x192.png"
+    />
+    <link rel="apple-touch-startup-image" href="/icons/favicon-192x192.png" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <title>Uptime Calculator</title>
+  </head>
+  <body>
+    <div class="site">
+      <div class="content">
+        <header class="hero">
+          <h1>Uptime Calculator</h1>
+        </header>
+        <main class="calculator">
+          <div class="input-wrap">
+            <div class="input-frame">
+              <input
+                id="uptime-input"
+                type="text"
+                placeholder="99.9"
+                aria-label="uptime percentage"
+              />
+              <span class="percent-sign">%</span>
+            </div>
+          </div>
+          <div class="downtime-card">
+            <div id="downtime-rows" aria-live="polite"></div>
+          </div>
+          <noscript>
+            <p class="no-js">
+              I hope this uptime calculator is useful! It needs JavaScript to
+              update downtime values interactively.
+            </p>
+          </noscript>
+        </main>
+      </div>
+      <footer class="site-footer">
+        Made by
+        <a href="https://lingrino.com" target="_blank" rel="noopener">
+          Sean Lingren
+        </a>
+        &nbsp;•&nbsp;
+        <a
+          href="https://github.com/lingrino/uptime"
+          target="_blank"
+          rel="noopener"
+        >
+          Source Code
+        </a>
+      </footer>
+    </div>
+    <script type="module" src="/src/app.js"></script>
+  </body>
+</html>

@@ -2,10 +2,8 @@
 
 A simple site useful for calculating how expected uptime (eg: `99.99%`) translates to allowed downtime in a period (eg: `53 minutes/year`).
 
-This site is built with the following technologies. I chose them because they're new and I wanted to try them out.
+This site is intentionally built with plain HTML, CSS, and JavaScript. It has no runtime or build dependencies; the build script only copies static files into `dist/` for Cloudflare Pages.
 
-- [Svelte](https://svelte.dev)
-- [Tailwind](https://tailwindcss.com/)
 - [Cloudflare Pages](https://pages.cloudflare.com/)
 
 ## Contributing
@@ -20,6 +18,12 @@ I would like to add an API to this site. If the user appends `.json` to any url 
 
 ```shell
 npm run dev
+```
+
+### Build Static Site
+
+```shell
+npm run build
 ```
 
 ### Run Tests
