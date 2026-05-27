@@ -1,0 +1,47 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+      pull-requests: write
+    name: Deploy
+    steps:
+      - name: checkout
+        uses: actions/checkout@v6
+
+      - name: install node
+        uses: actions/setup-node@v6.4.0
+        with:
+          node-version: lts/*
+
+      - name: build
+        run: npm run build
+
+      - name: test
+        run: npm test
+
+      - name: deploy to Cloudflare Pages
+        id: deploy
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: uptime
+          directory: public
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: deployment URL
+        run: echo "Deployed to ${{ steps.deploy.outputs.url }}"
