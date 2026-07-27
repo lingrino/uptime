@@ -10,6 +10,11 @@
     {
       "groupName": "all",
       "matchManagers": ["github-actions", "npm", "nvm"]
+    },
+    {
+      "description": "TypeScript 7 ships without a programmatic API, so svelte-check and typescript-eslint cannot support it yet. Revisit when TypeScript 7.1 ships that API. See https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/",
+      "matchPackageNames": ["typescript"],
+      "allowedVersions": "<7"
     }
   ]
 }
