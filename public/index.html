@@ -10,34 +10,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--
-        Strict Transport Security
-        Docs: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
-        Docs: https://infosec.mozilla.org/guidelines/web_security#http-strict-transport-security
-      -->
-    <meta
-      http-equiv="Strict-Transport-Security"
-      content="
-        max-age=63072000;
-        includeSubDomains;
-        preload;"
-    />
-
-    <!--
-        X-XSS-Protection
-        Docs: https://infosec.mozilla.org/guidelines/web_security#x-xss-protection
-      -->
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
-
-    <!--
-        X-Content-Type-Options
-        Docs: https://infosec.mozilla.org/guidelines/web_security#x-content-type-options
-      -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-
     <!-- Metadata -->
     <meta name="referrer" content="no-referrer" />
-    <link rel="manifest" href="%sveltekit.assets%/site/site.webmanifest" />
+    <link rel="manifest" href="/site/site.webmanifest" />
+    <link rel="canonical" href="https://uptime.how/" />
 
     <!-- Titles -->
     <title>Uptime Calculator</title>
@@ -52,23 +28,20 @@
       rel="icon"
       type="image/png"
       sizes="192x192"
-      href="%sveltekit.assets%/icons/favicon-192x192.png"
+      href="/icons/favicon-192x192.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="%sveltekit.assets%/icons/favicon-16x16.png"
+      href="/icons/favicon-16x16.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="192x192"
-      href="%sveltekit.assets%/icons/favicon-192x192.png"
+      href="/icons/favicon-192x192.png"
     />
-    <link
-      rel="apple-touch-startup-image"
-      href="%sveltekit.assets%/icons/favicon-192x192.png"
-    />
+    <link rel="apple-touch-startup-image" href="/icons/favicon-192x192.png" />
 
     <!--
         Colors
@@ -79,15 +52,17 @@
       name="apple-mobile-web-app-status-bar-style"
       content="black-translucent"
     />
-    %sveltekit.head%
+
+    <link rel="stylesheet" href="/app.css" />
+    <link rel="modulepreload" href="/uptime.js" />
+    <link rel="modulepreload" href="/math.js" />
   </head>
 
-  <body data-sveltekit-preload-data="hover">
+  <body>
     <noscript>
       <style>
-        @font-face {
-          font-family: "berkeley-mono-variable";
-          src: url("fonts/berkeley-mono-variable.woff2") format("woff2");
+        .app {
+          display: none !important;
         }
 
         #nojs {
@@ -264,18 +239,65 @@
         </h3>
       </div>
     </noscript>
-    <div style="display: contents" class="js-enabled">%sveltekit.body%</div>
-    <style>
-      .js-enabled {
-        display: contents;
-      }
-    </style>
-    <noscript>
-      <style>
-        .js-enabled {
-          display: none !important;
-        }
-      </style>
-    </noscript>
+    <div class="app">
+      <div class="content">
+        <header>
+          <h1>Uptime Calculator</h1>
+        </header>
+        <main>
+          <div class="field">
+            <div class="field-box">
+              <input
+                id="uptime"
+                type="text"
+                value="99.9"
+                placeholder="99.9"
+                aria-label="uptime percentage"
+              />
+              <div class="field-suffix">%</div>
+            </div>
+          </div>
+
+          <dl class="downtime">
+            <div>
+              <dt>Daily</dt>
+              <dd data-divisor="365">1 minute, 26 seconds</dd>
+            </div>
+            <div>
+              <dt>Weekly</dt>
+              <dd data-divisor="52">10 minutes, 5 seconds</dd>
+            </div>
+            <div>
+              <dt>Monthly</dt>
+              <dd data-divisor="12">43 minutes, 50 seconds</dd>
+            </div>
+            <div>
+              <dt>Quarterly</dt>
+              <dd data-divisor="4">2 hours, 11 minutes, 29 seconds</dd>
+            </div>
+            <div>
+              <dt>Yearly</dt>
+              <dd data-divisor="1">8 hours, 45 minutes, 58 seconds</dd>
+            </div>
+          </dl>
+        </main>
+      </div>
+      <footer>
+        Made by
+        <a href="https://lingrino.com" target="_blank" rel="noopener"
+          >Sean Lingren</a
+        >&nbsp;•&nbsp;<a
+          href="https://github.com/lingrino/uptime"
+          target="_blank"
+          rel="noopener"
+          >Source Code</a
+        >
+      </footer>
+    </div>
+
+    <script type="module">
+      import { mount } from "/uptime.js";
+      mount();
+    </script>
   </body>
 </html>
