@@ -37,7 +37,7 @@
 
     <!-- Metadata -->
     <meta name="referrer" content="no-referrer" />
-    <link rel="manifest" href="%sveltekit.assets%/site/site.webmanifest" />
+    <link rel="manifest" href="/site/site.webmanifest" />
 
     <!-- Titles -->
     <title>Uptime Calculator</title>
@@ -52,23 +52,20 @@
       rel="icon"
       type="image/png"
       sizes="192x192"
-      href="%sveltekit.assets%/icons/favicon-192x192.png"
+      href="/icons/favicon-192x192.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="%sveltekit.assets%/icons/favicon-16x16.png"
+      href="/icons/favicon-16x16.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="192x192"
-      href="%sveltekit.assets%/icons/favicon-192x192.png"
+      href="/icons/favicon-192x192.png"
     />
-    <link
-      rel="apple-touch-startup-image"
-      href="%sveltekit.assets%/icons/favicon-192x192.png"
-    />
+    <link rel="apple-touch-startup-image" href="/icons/favicon-192x192.png" />
 
     <!--
         Colors
@@ -79,15 +76,17 @@
       name="apple-mobile-web-app-status-bar-style"
       content="black-translucent"
     />
-    %sveltekit.head%
+
+    <link rel="stylesheet" href="/app.css" />
+    <link rel="modulepreload" href="/uptime.js" />
+    <link rel="modulepreload" href="/math.js" />
   </head>
 
-  <body data-sveltekit-preload-data="hover">
+  <body>
     <noscript>
       <style>
-        @font-face {
-          font-family: "berkeley-mono-variable";
-          src: url("fonts/berkeley-mono-variable.woff2") format("woff2");
+        .app {
+          display: none !important;
         }
 
         #nojs {
@@ -264,18 +263,64 @@
         </h3>
       </div>
     </noscript>
-    <div style="display: contents" class="js-enabled">%sveltekit.body%</div>
-    <style>
-      .js-enabled {
-        display: contents;
-      }
-    </style>
-    <noscript>
-      <style>
-        .js-enabled {
-          display: none !important;
-        }
-      </style>
-    </noscript>
+    <div class="app">
+      <div class="content">
+        <header>
+          <h1>Uptime Calculator</h1>
+        </header>
+        <main>
+          <div class="field">
+            <div class="field-box">
+              <input
+                id="uptime"
+                type="text"
+                placeholder="99.9"
+                aria-label="uptime percentage"
+              />
+              <div class="field-suffix">%</div>
+            </div>
+          </div>
+
+          <dl class="downtime">
+            <div>
+              <dt>Daily</dt>
+              <dd data-divisor="365"></dd>
+            </div>
+            <div>
+              <dt>Weekly</dt>
+              <dd data-divisor="52"></dd>
+            </div>
+            <div>
+              <dt>Monthly</dt>
+              <dd data-divisor="12"></dd>
+            </div>
+            <div>
+              <dt>Quarterly</dt>
+              <dd data-divisor="4"></dd>
+            </div>
+            <div>
+              <dt>Yearly</dt>
+              <dd data-divisor="1"></dd>
+            </div>
+          </dl>
+        </main>
+      </div>
+      <footer>
+        Made by
+        <a href="https://lingrino.com" target="_blank" rel="noopener"
+          >Sean Lingren</a
+        >&nbsp;•&nbsp;<a
+          href="https://github.com/lingrino/uptime"
+          target="_blank"
+          rel="noopener"
+          >Source Code</a
+        >
+      </footer>
+    </div>
+
+    <script type="module">
+      import { mount } from "/uptime.js";
+      mount();
+    </script>
   </body>
 </html>
