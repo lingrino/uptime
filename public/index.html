@@ -10,31 +10,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--
-        Strict Transport Security
-        Docs: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
-        Docs: https://infosec.mozilla.org/guidelines/web_security#http-strict-transport-security
-      -->
-    <meta
-      http-equiv="Strict-Transport-Security"
-      content="
-        max-age=63072000;
-        includeSubDomains;
-        preload;"
-    />
-
-    <!--
-        X-XSS-Protection
-        Docs: https://infosec.mozilla.org/guidelines/web_security#x-xss-protection
-      -->
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
-
-    <!--
-        X-Content-Type-Options
-        Docs: https://infosec.mozilla.org/guidelines/web_security#x-content-type-options
-      -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-
     <!-- Metadata -->
     <meta name="referrer" content="no-referrer" />
     <link rel="manifest" href="/site/site.webmanifest" />
@@ -274,6 +249,7 @@
               <input
                 id="uptime"
                 type="text"
+                value="99.9"
                 placeholder="99.9"
                 aria-label="uptime percentage"
               />
@@ -284,23 +260,23 @@
           <dl class="downtime">
             <div>
               <dt>Daily</dt>
-              <dd data-divisor="365"></dd>
+              <dd data-divisor="365">1 minute, 26 seconds</dd>
             </div>
             <div>
               <dt>Weekly</dt>
-              <dd data-divisor="52"></dd>
+              <dd data-divisor="52">10 minutes, 5 seconds</dd>
             </div>
             <div>
               <dt>Monthly</dt>
-              <dd data-divisor="12"></dd>
+              <dd data-divisor="12">43 minutes, 50 seconds</dd>
             </div>
             <div>
               <dt>Quarterly</dt>
-              <dd data-divisor="4"></dd>
+              <dd data-divisor="4">2 hours, 11 minutes, 29 seconds</dd>
             </div>
             <div>
               <dt>Yearly</dt>
-              <dd data-divisor="1"></dd>
+              <dd data-divisor="1">8 hours, 45 minutes, 58 seconds</dd>
             </div>
           </dl>
         </main>

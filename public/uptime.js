@@ -17,7 +17,8 @@ export const presets = new Map([
 ]);
 
 export function isValidUptime(value) {
-  return !Number.isNaN(Number(value)) && value >= 0 && value <= 100;
+  const uptime = Number(value);
+  return !Number.isNaN(uptime) && uptime >= 0 && uptime <= 100;
 }
 
 // initial uptime for a URL path like "/five-nines" or "/99.95"

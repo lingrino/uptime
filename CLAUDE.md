@@ -34,7 +34,8 @@ Do not add npm dependencies. The point of this project's setup is that there is 
 - `uptimeFromPath(pathname)` - Initial uptime for a URL path; custom values are returned as typed, invalid values fall back to 99.9
 - `isValidUptime(value)` - Accepts 0-100
 - `mount()` - Wires up the page. Called from an inline module script in `index.html`
-- `index.html` holds the markup, including one row per period with a `data-divisor` that `mount()` fills in, and a `<noscript>` fallback table for visitors without JavaScript
+- `index.html` holds the markup, including one row per period with a `data-divisor` that `mount()` fills in, and a `<noscript>` fallback table for visitors without JavaScript. The input and rows are prefilled with the 99.9 values so nothing shifts before JS runs; a test keeps them in sync with `math.js`
+- `public/_headers` sets response headers on Cloudflare Pages (HSTS comes from the Cloudflare zone, not this file)
 
 ### Key Patterns
 

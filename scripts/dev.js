@@ -6,7 +6,7 @@ import { extname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = fileURLToPath(new URL("../public/", import.meta.url));
-const port = Number(process.env.PORT) || 5173;
+const port = process.env.PORT ?? 5173;
 
 const types = {
   ".css": "text/css",
@@ -31,13 +31,21 @@ async function resolve(pathname) {
   return join(root, "index.html");
 }
 
-createServer(async (req, res) => {
-  const file = await resolve(new URL(req.url, "http://localhost").pathname);
-  res.writeHead(200, {
-    "Cache-Control": "no-store",
-    "Content-Type": types[extname(file)] ?? "application/octet-stream",
-  });
-  res.end(await readFile(file));
-}).listen(port, () => {
-  console.log(`serving public/ at http://localhost:${port}`);
+const server = createServer(async (req, res) => {
+  try {
+    const file = await resolve(new URL(req.url, "http://localhost").pathname);
+    const body = await readFile(file);
+    res.writeHead(200, {
+      "Cache-Control": "no-store",
+      "Content-Type": types[extname(file)] ?? "application/octet-stream",
+    });
+    res.end(body);
+  } catch (err) {
+    res.writeHead(500, { "Content-Type": "text/plain" });
+    res.end(String(err));
+  }
+});
+
+server.listen(port, () => {
+  console.log(`serving public/ at http://localhost:${server.address().port}`);
 });
