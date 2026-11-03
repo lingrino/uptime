@@ -2,7 +2,7 @@
 
 A simple site useful for calculating how expected uptime (eg: `99.99%`) translates to allowed downtime in a period (eg: `53 minutes/year`).
 
-This site is plain HTML, CSS, and JavaScript with no dependencies and no build step. The `public/` directory is deployed as-is to [Cloudflare Pages](https://pages.cloudflare.com/), which serves `index.html` for any path that isn't a file so routes like `/99.95` and `/five-nines` work.
+This site is plain HTML, CSS, and JavaScript with no dependencies and no build step. The `public/` directory is deployed as-is to [Cloudflare Pages](https://pages.cloudflare.com/), and a small [Pages Function](https://developers.cloudflare.com/pages/functions/) in `functions/` fills in the values for routes like `/99.95` and `/five-nines`, so search engines see them and nothing changes on screen when the JavaScript loads.
 
 ## Contributing
 

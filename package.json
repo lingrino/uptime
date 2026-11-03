@@ -11,7 +11,7 @@
     "dev": "node scripts/dev.js",
     "test": "node --test test/*.test.js",
     "test:watch": "node --test --watch test/*.test.js",
-    "lint": "for f in public/*.js scripts/*.js test/*.js; do node --check $f || exit 1; done",
+    "lint": "for f in public/*.js scripts/*.js functions/*.js test/*.js; do node --check \"$f\" || exit 1; done",
     "format": "npx --yes prettier@3.9.10 --write .",
     "format:check": "npx --yes prettier@3.9.10 --check ."
   }

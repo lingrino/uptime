@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "include": ["/*"],
+  "exclude": [
+    "/",
+    "/app.css",
+    "/math.js",
+    "/uptime.js",
+    "/robots.txt",
+    "/fonts/*",
+    "/icons/*",
+    "/site/*"
+  ]
+}

@@ -6,8 +6,15 @@ import {
   isValidUptime,
   mount,
   presets,
+  renderPage,
+  routeUptime,
   uptimeFromPath,
 } from "../public/uptime.js";
+
+const template = await readFile(
+  new URL("../public/index.html", import.meta.url),
+  "utf8",
+);
 
 describe("Uptime Component Logic", () => {
   it("validates uptime input ranges", () => {
@@ -21,9 +28,19 @@ describe("Uptime Component Logic", () => {
 
   it("validates uptime typed as text", () => {
     assert.equal(isValidUptime("99.95"), true);
-    assert.equal(isValidUptime(""), true); // treated as 0%
+    assert.equal(isValidUptime("99."), true); // on the way to 99.9
+    assert.equal(isValidUptime(".5"), true);
     assert.equal(isValidUptime("abc"), false);
     assert.equal(isValidUptime("101"), false);
+  });
+
+  it("only accepts plain decimals", () => {
+    assert.equal(isValidUptime(""), false);
+    assert.equal(isValidUptime("  "), false);
+    assert.equal(isValidUptime(" 50"), false);
+    assert.equal(isValidUptime("0x10"), false);
+    assert.equal(isValidUptime("1e1"), false);
+    assert.equal(isValidUptime("-0"), false);
   });
 
   it("calculates downtime periods correctly", () => {
@@ -64,23 +81,79 @@ describe("uptimeFromPath", () => {
     assert.equal(uptimeFromPath("/-1"), 99.9);
     assert.equal(uptimeFromPath("/constructor"), 99.9);
     assert.equal(uptimeFromPath("/%E0%A4%A"), 99.9);
+    assert.equal(uptimeFromPath("/0x10"), 99.9);
   });
 });
 
-describe("index.html", () => {
-  it("prefills the default uptime so nothing shifts before JS runs", async () => {
-    const html = await readFile(
-      new URL("../public/index.html", import.meta.url),
-      "utf8",
+describe("routeUptime", () => {
+  it("is undefined for paths that aren't an uptime", () => {
+    assert.equal(routeUptime("/five-nines"), 99.999);
+    assert.equal(routeUptime("/99.95"), "99.95");
+    assert.equal(routeUptime("/wp-admin"), undefined);
+    assert.equal(routeUptime("/a/b"), undefined);
+    assert.equal(routeUptime("/150"), undefined);
+  });
+});
+
+describe("renderPage", () => {
+  const field = (html, re) => html.match(re)[1];
+  const title = (html) => field(html, /<title>([^<]*)/);
+  const canonical = (html) => field(html, /rel="canonical" href="([^"]*)/);
+  const value = (html) => field(html, /id="uptime"[^>]*\svalue="([^"]*)/);
+  const rows = (html) =>
+    [...html.matchAll(/<dd data-divisor="(\d+)">([^<]*)</g)].map((m) => [
+      Number(m[1]),
+      m[2],
+    ]);
+
+  it("leaves index.html as the rendered root page", () => {
+    // / is served straight from public/index.html, so it must already match
+    assert.deepEqual(renderPage(template, "/"), {
+      status: 200,
+      html: template,
+    });
+    assert.equal(value(template), String(presets.get("")));
+    for (const [divisor, text] of rows(template)) {
+      assert.equal(text, secondsToDhms(uptimeSeconds(99.9, divisor)));
+    }
+  });
+
+  it("renders named routes", () => {
+    const { status, html } = renderPage(template, "/five-nines");
+
+    assert.equal(status, 200);
+    assert.equal(title(html), "Five Nines (99.999%) - Uptime Calculator");
+    assert.match(
+      html,
+      /content="99.999% uptime allows 5 minutes, 16 seconds of downtime per year."/,
     );
-    const uptime = presets.get("");
+    assert.equal(canonical(html), "https://uptime.how/five-nines");
+    assert.equal(value(html), "99.999");
+    assert.deepEqual(rows(html), [
+      [365, "1 second"],
+      [52, "6 seconds"],
+      [12, "26 seconds"],
+      [4, "1 minute, 19 seconds"],
+      [1, "5 minutes, 16 seconds"],
+    ]);
+  });
 
-    assert.match(html, new RegExp(`value="${uptime}"`));
+  it("renders custom uptime", () => {
+    const { status, html } = renderPage(template, "/99.95");
 
-    const rows = [...html.matchAll(/<dd data-divisor="(\d+)">([^<]*)<\/dd>/g)];
-    assert.equal(rows.length, 5);
-    for (const [, divisor, value] of rows) {
-      assert.equal(value, secondsToDhms(uptimeSeconds(uptime, divisor)));
+    assert.equal(status, 200);
+    assert.equal(title(html), "99.95% - Uptime Calculator");
+    assert.equal(canonical(html), "https://uptime.how/99.95");
+    assert.equal(value(html), "99.95");
+    assert.equal(rows(html)[0][1], "43 seconds");
+  });
+
+  it("returns 404 with the default page for other paths", () => {
+    for (const path of ["/wp-admin", "/a/b", "/150", "/<script>"]) {
+      assert.deepEqual(renderPage(template, path), {
+        status: 404,
+        html: template,
+      });
     }
   });
 });
@@ -119,6 +192,7 @@ describe("mount", () => {
       textContent: "",
     }));
     globalThis.document = {
+      title: "",
       querySelector: () => input,
       querySelectorAll: () => durations,
     };
@@ -155,6 +229,7 @@ describe("mount", () => {
     input.type("99.5");
 
     assert.equal(location.pathname, "/99.5");
+    assert.equal(document.title, "99.5% - Uptime Calculator");
     assert.equal(values()[0], "7 minutes, 12 seconds");
     assert.equal(input.classes.has("invalid"), false);
   });
@@ -163,8 +238,13 @@ describe("mount", () => {
     input.type("abc");
 
     assert.equal(location.pathname, "/five-nines");
+    assert.equal(document.title, "");
     assert.equal(values()[0], "1 second");
     assert.equal(input.classes.has("invalid"), true);
+
+    input.type("");
+    assert.equal(location.pathname, "/five-nines");
+    assert.equal(values()[0], "1 second");
 
     input.type("99");
     assert.equal(input.classes.has("invalid"), false);

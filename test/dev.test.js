@@ -22,7 +22,11 @@ describe("dev server", { timeout: 10_000 }, () => {
 
   async function get(path) {
     const res = await fetch(base + path);
-    return { type: res.headers.get("content-type"), body: await res.text() };
+    return {
+      status: res.status,
+      type: res.headers.get("content-type"),
+      body: await res.text(),
+    };
   }
 
   it("serves files from public/", async () => {
@@ -30,17 +34,32 @@ describe("dev server", { timeout: 10_000 }, () => {
     assert.equal((await get("/uptime.js")).type, "text/javascript");
   });
 
-  it("serves index.html for app routes", async () => {
-    for (const path of ["/", "/five-nines", "/99.95", "/a/b"]) {
-      const { type, body } = await get(path);
+  it("renders app routes with their uptime", async () => {
+    for (const [path, uptime] of [
+      ["/", "99.9"],
+      ["/five-nines", "99.999"],
+      ["/99.95", "99.95"],
+    ]) {
+      const { status, type, body } = await get(path);
+      assert.equal(status, 200);
       assert.equal(type, "text/html");
+      assert.match(body, new RegExp(`\\svalue="${uptime}"`));
+    }
+  });
+
+  it("returns 404 with the app for other paths", async () => {
+    for (const path of ["/wp-admin", "/a/b", "/missing.png"]) {
+      const { status, body } = await get(path);
+      assert.equal(status, 404);
       assert.match(body, /id="uptime"/);
     }
   });
 
   it("does not serve files outside public/", async () => {
     for (const path of ["/..%2fpackage.json", "/%2e%2e/package.json"]) {
-      assert.match((await get(path)).body, /id="uptime"/);
+      const { status, body } = await get(path);
+      assert.equal(status, 404);
+      assert.doesNotMatch(body, /"name": "uptime"/);
     }
   });
 });
